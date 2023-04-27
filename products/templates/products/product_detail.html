@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ product.name }}</h1>
+        <p>Product Code: {{ product.id_number }}</p>
+        <p>Description: <span class="description">{{ product.description }}</span></p>
+        <p class="owner">Owner: {{ product.owner }}</p>
+        <p>Related skills: {{ product.skills }}</p>
+        <a href="{% url 'products.list'%}">Back to Products Page</a>
+    </div>
+{% endblock %}
