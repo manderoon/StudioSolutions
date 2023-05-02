@@ -1,0 +1,87 @@
+.back-link {
+    /* Center the link horizontally */
+    display: block;
+    margin: 0 auto;
+    
+    /* Additional styles for the link */
+    /* Add any other styles as needed */
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh; /*Optional: set the height of the container to center vertically */
+  }
+
+.button-container1 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 7vh; /*Optional: set the height of the container to center vertically */
+    margin-left: 3%;
+  }
+
+
+
+.ilccontainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.ilcbutton {
+    width: 200px;
+    height: 100px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 5px;
+}
+  
+
+.product-list {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    border: 1px solid #eeeeee;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.product-item:last-child {
+    margin-bottom: 0;
+}
+
+.product-item .product-info {
+    flex-grow: 1;
+    padding-left: 16px;
+}
+
+.product-item h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #666666;
+    margin: 0;
+}
+
+.product-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.product-item a:hover {
+    text-decoration: underline;
+}  

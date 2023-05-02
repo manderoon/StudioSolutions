@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Product Owners</h1>
+
+        <ul class="product-list">
+            {% for product_owner in productowners %}
+                <li class="product-item">
+                    <div class="product-info">
+                        <h2>{{ product_owner.first_name }} {{ product_owner.last_name }}</h2>
+                        <p>Owner ID: {{ product_owner.product_owner_id}}</p>
+                        <a href="{% url 'productsowners.detail' pk=product_owner.product_owner_id %}">View Details</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No products available</li>
+            {% endfor %}
+        </ul>
+        <!-- HTML code -->
+        <a href="{% url 'studio.welcome' %}" class="back-link text-center">Back to Studio Page</a>
+    </div>
+{% endblock %}
