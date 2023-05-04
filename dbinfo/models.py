@@ -13,6 +13,7 @@ class IlcActivity(models.Model):
 
     def __str__(self):
         return self.activity_name
+    
     class Meta:
         db_table = 'ILC_Activity'
 

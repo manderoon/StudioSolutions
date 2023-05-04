@@ -7,7 +7,7 @@
             <a class="btn btn-outline-primary" href="{% url 'addstudentactivity' %}" role="button">Add an Student ILC Activity Review</a>
         </div>
         <ul class="product-list">
-            {% for activity in studentactivities %}
+            {% for activity in studentactivity %}
                 <li class="product-item">
                     <div class="product-info">
                         <h2>{{ activity.activity }}</h2>

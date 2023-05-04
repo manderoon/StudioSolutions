@@ -23,3 +23,15 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Product, ProductAdmin)
 
+class StudentIlcActivityAdmin(admin.ModelAdmin):
+    list_display = ('student',)
+
+
+admin.site.register(models.StudentIlcActivity, StudentIlcActivityAdmin)
+
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('student_id',)
+
+
+admin.site.register(models.Student, StudentAdmin)
+

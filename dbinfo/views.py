@@ -7,7 +7,7 @@ from .models import *
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
-    template_name = 'products/product_list.html'
+    template_name = 'products/products_list2.html'
 
 class ProductDetailView(DetailView):
     model = Product
@@ -89,25 +89,32 @@ def addActivity(request):
     }
     return render(request, 'ilc/add_activity.html', context)
 
+from django import forms
+from django.contrib.auth.models import User
+# class MyForm(forms.Form):
+#     student = forms.CharField()
+
+#     def __init__(self, *args, **kwargs):
+#         self.user = kwargs.pop('user', None)
+#         super().__init__(*args, **kwargs)
+#         if self.user:
+#             self.fields['student'].initial = self.user.username
 
 @login_required
 def addStudentActivity(request):
     if request.method == 'POST':
         u_form = AddStudentActivityForm(request.POST)
         if u_form.is_valid():
-    
-                review = u_form.save(commit=False)
-                review.user = request.user
-                review.save()
-                print(u_form)
-                messages.success(request, f'The activity review has been added!')
-                return redirect('studentactivities.list') # Redirect back to skill page
+            review = u_form.save(commit=False)
+            review.user = request.user
+            review.save()
+            messages.success(request, 'The activity review has been added!')
+            return redirect('studentactivities.list')
         else:
             print(f"Invalid form data: {u_form.errors}")
     else:
         u_form = AddStudentActivityForm()
 
     context = {
-        'u_form': u_form,
-    }
+        'u_form': u_form}
     return render(request, 'ilc/add_studentactivity.html', context)
