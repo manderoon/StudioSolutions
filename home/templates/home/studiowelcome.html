@@ -11,10 +11,16 @@
         <a href="{% url 'products.list' %}" class="btn btn-primary">Check out the available products!</a>
     </div>
     <div class="button-container">
-        <a href="#" class="btn btn-primary">Check out the ILC Activities Page!</a>
+        <a href="{% url 'activities.list' %}" class="btn btn-primary">Check out the ILC Activities Page!</a>
     </div>
     <div class="button-container">
         <a href="{% url 'productsowners.list' %}" class="btn btn-primary">Check out the Product Owners!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'skills.list' %}" class="btn btn-primary">Check out the Skills!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'studentactivities.list' %}" class="btn btn-primary">Check out the Skills!</a>
     </div>
    
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Student ILC Activities List</h1>
+        <div class="button-container1">
+            <a class="btn btn-outline-primary" href="{% url 'addstudentactivity' %}" role="button">Add an Student ILC Activity Review</a>
+        </div>
+        <ul class="product-list">
+            {% for activity in studentactivities %}
+                <li class="product-item">
+                    <div class="product-info">
+                        <h2>{{ activity.activity }}</h2>
+                        <p>{{ activity.product }}</p>
+                        <p>Ranking: {{ activity.engagement_ranking }}</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No Student ILC Activity Reviews</li>
+            {% endfor %}
+        </ul>
+        <!-- HTML code -->
+        <a href="{% url 'studio.welcome' %}" class="back-link text-center">Back to Studio Page</a>
+    </div>
+{% endblock %}
