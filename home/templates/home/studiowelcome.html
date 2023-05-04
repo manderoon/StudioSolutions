@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-center">Welcome to Studio Solutions!</h1>
+    <p class="text-center">Today is {{today}}</p>
+    <body>
+        <p class="text-center">You are viewing the page for {{season}} session {{year}}</p>
+    </body>
+
+    <div class="button-container">
+        <a href="{% url 'products.list' %}" class="btn btn-primary">Check out the available products!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'activities.list' %}" class="btn btn-primary">Check out the ILC Activities Page!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'productsowners.list' %}" class="btn btn-primary">Check out the Product Owners!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'skills.list' %}" class="btn btn-primary">Check out the Skills!</a>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'studentactivities.list' %}" class="btn btn-primary">Check out the ILC Activity Reviews!</a>
+    </div>
+   
+{% endblock %}
+

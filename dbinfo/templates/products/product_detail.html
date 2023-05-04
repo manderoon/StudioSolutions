@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ product.product_name }}</h1>
+        <p>Product Code: {{ product.product_id }}</p>
+        <p>Description: <span class="description">{{ product.description }}</span></p>
+        <p class="owner">Owner: {{ product.product_owner.first_name }} {{product.product_owner.last_name }}</p>
+        <p>Related skills: {{ product.skill.skill_name }}</p>
+        <a href="{% url 'productsowners.detail' pk=product.product_owner.product_owner_id %}">View the Product Owner's page here</a>
+        <p></p>
+        <div style="text-align: center;">
+            <a href="{% url 'products.list'%}">Back to Products Page</a>
+
+        </div>
+        
+    </div>
+{% endblock %}

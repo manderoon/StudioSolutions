@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ productowner.first_name }} {{ productowner.last_name }}</h1>
+        <p>Owner ID: {{ productowner.product_owner_id }}</p>
+        <a href="{% url 'productsowners.list'%}">Back to Product Owner Page</a>
+    </div>
+{% endblock %}
