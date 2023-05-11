@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ activity.activity_name }}</h1>
+        <p>Activity Code: {{ activity.activity_id }}</p>
+        <p>Resource type: {{ activity.resource_type }}</p>
+        <p>Link: {{ activity.link }}</p>
+        <button onclick="window.location.href='{{ activity.link }}'">Go to activity</button>
+        
+        <p></p>
+        <div style="text-align: center;">
+            <a href="{% url 'activities.list'%}">Back to ILC Activities Page</a>
+
+        </div>
+        
+    </div>
+{% endblock %}

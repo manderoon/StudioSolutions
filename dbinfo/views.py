@@ -7,7 +7,12 @@ from .models import *
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
-    template_name = 'products/products_list2.html'
+    template_name = 'products/product_list.html'
+
+class TestProductListView(ListView):
+    model = Product
+    context_object_name = 'products'
+    template_name = 'product_list3.html'
 
 class ProductDetailView(DetailView):
     model = Product
@@ -40,10 +45,20 @@ class StudentActivitiesList(ListView):
     context_object_name = 'studentactivity'
     template_name = "ilc/studentactivities_list.html"
 
+class ActivitiesDetailView(DetailView):
+    model = IlcActivity
+    context_object_name = 'activity'
+    template_name = "ilc/activities_detail.html"
+
+class StudentActivitiesDetailView(DetailView):
+    model = StudentIlcActivity
+    context_object_name = 'activity'
+    template_name = "ilc/studentactivities_detail.html"
+
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import AddSkillForm, AddActivityForm, AddStudentActivityForm
+from .forms import AddSkillForm, AddActivityForm, AddStudentActivityForm, AddPreference
 
 @login_required
 def addSkill(request):
@@ -118,3 +133,22 @@ def addStudentActivity(request):
     context = {
         'u_form': u_form}
     return render(request, 'ilc/add_studentactivity.html', context)
+
+@login_required
+def addPreference(request):
+    if request.method == 'POST':
+        u_form = AddPreference(request.POST)
+        if u_form.is_valid():
+            review = u_form.save(commit=False)
+            review.user = request.user
+            review.save()
+            messages.success(request, 'The product preference has been added!')
+            return redirect('products.list')
+        else:
+            print(f"Invalid form data: {u_form.errors}")
+    else:
+        u_form = AddPreference()
+
+    context = {
+        'u_form': u_form}
+    return render(request, 'products/add_preferences.html', context)

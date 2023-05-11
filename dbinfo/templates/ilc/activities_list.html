@@ -12,7 +12,7 @@
                     <div class="product-info">
                         <h2>{{ activity.activity_name }}</h2>
                         <p>{{ activity.resource_type }}</p>
-                        <a href="#">View Details</a>
+                        <a href="{% url 'activities.detail'  pk=activity.activity_id %}">View Details</a>
                     </div>
                 </li>
             {% empty %}

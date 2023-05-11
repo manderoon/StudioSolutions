@@ -11,7 +11,11 @@ urlpatterns = [
     path('skills', views.SkillListView.as_view(), name="skills.list"),
     path('addskill', views.addSkill, name="addskill"),
     path('ilcactivities', views.ActivitiesList.as_view(), name="activities.list"),
+    path('ilcactivities/<int:pk>', views.ActivitiesDetailView.as_view(), name="activities.detail"),
     path('addactivity', views.addActivity, name="addactivity"),
     path('studentactivities', views.StudentActivitiesList.as_view(), name="studentactivities.list"),
+    path('studentactivities/<int:pk>', views.StudentActivitiesDetailView.as_view(), name="studentactivities.detail"),
     path('addstudentactivity', views.addStudentActivity, name="addstudentactivity"),
+    path('addpreference', views.addPreference, name="addPreference"),
+    path('testproducts', views.TestProductListView.as_view(), name="testproducts.list"),
 ]
