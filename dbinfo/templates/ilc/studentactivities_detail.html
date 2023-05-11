@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ activity.activity }}</h2>
+        <h5>Associated product: {{ activity.product }}</h5>
+        <p>Student: {{ activity.student }}</p>
+        <p>Engagement Ranking: {{ activity.engagement_ranking }}</p>
+        <p>Relevancy Ranking: {{ activity.relevancy_ranking }}</p>
+        <p>Year completed: {{ activity.year_completed }}</p>
+        <p>Studio level: {{ activity.studio_level }}</p>
+        <p>Completion time: {{ activity.completion_time }}</p>
+
+        
+        <p></p>
+        <div style="text-align: center;">
+            <a href="{% url 'studentactivities.list'%}">Back to ILC Activities Page</a>
+
+        </div>
+        
+    </div>
+{% endblock %}

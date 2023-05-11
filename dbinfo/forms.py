@@ -1,5 +1,5 @@
 from django import forms
-from .models import Skill, IlcActivity, StudentIlcActivity, Product, Student
+from .models import Skill, IlcActivity, StudentIlcActivity, Product, Student, StudentPreference
 from users.models import Profile
 
 class AddSkillForm(forms.ModelForm):
@@ -61,3 +61,15 @@ class AddStudentActivityForm(forms.ModelForm):
         model = StudentIlcActivity
         fields = ['student', 'activity', 'product', 'engagement_ranking', 'relevancy_ranking', 
                   'year_completed', 'studio_level', 'completion_time' ]
+
+
+class AddPreference(forms.ModelForm):
+    student = forms.ModelChoiceField(queryset=Student.objects.all(), to_field_name='student_id', label='Student (Select yourself)')  # Field name made lowercase.
+    product = forms.ModelChoiceField(queryset=Product.objects.all(), to_field_name='product_name', label='Product')  # Field name made lowercase.
+    
+    preference = forms.ChoiceField(choices=[(i, i) for i in range(0, 4)], required=False, label='Choose preference (1 being top preference) ')  # Field name made lowercase.   
+    
+
+    class Meta:
+        model = StudentPreference
+        fields = ['student', 'product', 'preference']

@@ -35,3 +35,8 @@ class StudentAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Student, StudentAdmin)
 
+
+class ActivityAdmin(admin.ModelAdmin):
+    list_display = ('activity_name', 'activity_id')
+
+admin.site.register(models.IlcActivity, ActivityAdmin)

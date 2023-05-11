@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="container">
-        <h1 class="text-center">Student ILC Activities List</h1>
+        <h1 class="text-center">Student ILC Activities </Details></h1>
         <div class="button-container1">
             <a class="btn btn-outline-primary" href="{% url 'addstudentactivity' %}" role="button">Add an Student ILC Activity Review</a>
         </div>
@@ -11,9 +11,9 @@
                 <li class="product-item">
                     <div class="product-info">
                         <h2>{{ activity.activity }}</h2>
-                        <p>{{ activity.product }}</p>
+                        <p>Product: {{ activity.product }}</p>                        
                         <p>Ranking: {{ activity.engagement_ranking }}</p>
-                        <a href="#">View Details</a>
+                        <a href="{% url 'studentactivities.detail'  pk=activity.student_id %}">View Details</a>
                     </div>
                 </li>
             {% empty %}
